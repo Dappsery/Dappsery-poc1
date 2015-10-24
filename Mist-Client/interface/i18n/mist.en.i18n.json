@@ -1,0 +1,109 @@
+{
+    "mist": {
+        "applicationMenu": {
+            "app": {
+                "label": "__app__",
+                "about": "About __app__",
+                "quit": "Quit __app__"
+            },
+            "edit": {
+                "label": "Edit",
+                "undo": "Undo",
+                "redo": "Redo",
+                "cut": "Cut",
+                "copy": "Copy",
+                "paste": "Paste",
+                "selectAll": "Select all"
+            },
+            "view": {
+                "label": "View",
+                "fullscreen": "Toggle Fullscreen"
+            },
+            "develop": {
+                "label": "Develop",
+                "devTools": "Toggle Developer Tools",
+                "devToolsMistUI": "Mist UI",
+                "devToolsWalletUI": "Wallet UI",
+                "devToolsWebview": "__webview__",
+                "runTests": "Run tests",
+                "ethereumNode": "Ethereum Node",
+                "network": "Network",
+                "mainNetwork": "Main Network"
+            },
+            "window": {
+                "label": "Window",
+                "minimize": "Minimize",
+                "close": "Close",
+                "toFront": "Bring All to Front"
+            },
+            "help": {
+                "label": "Help"
+            }
+        },
+        "rightClick": {
+            "reload": "Reload",
+            "openDevTools": "Open Developer Tools",
+            "inspectElements": "Inspect Element"
+        },
+        "sidebar": {
+            "buttons": {
+                "browser": "Browse"
+            }
+        },
+        "browserBar": {
+            "buttons": {
+                "keysNeeded": "Keys Needed"
+            }
+        },
+        "startScreen": {
+            "runningNodeFound": "Found running Ethereum node!",
+            "startingNode": "Starting Ethereum node...",
+            "startedNode": "Starting application...",
+            "nodeConnectionTimeout": "Couldn't start an Ethereum node!<br><small>Are you already running a node? Make sure your IPC path is set to the default: <code>$ geth --ipcpath __path__</code></small>",
+            "nodeBinaryNotFound": "No Ethereum node binary found!<br>Please start one manually.",
+            "nodeSyncing": "Ethereum node needs to sync, please wait...",
+            "nodeSyncInfo": "Processing block __currentBlock__ of __highestBlock__.",
+            "nodeSyncConnecting": "Looking for peers...",
+            "privateChainTimeout": "Skip peer search"
+        },
+        "popupWindows": {
+            "requestAccount": {
+                "title": "Create account",
+                "enterPassword": "Enter password",
+                "repeatPassword": "Repeat password",
+                "creating": "Generating account...",
+                "errors": {
+                    "passwordMismatch": "Your passwords don't match."
+                }
+            },
+            "unlockMasterPassword": {
+                "title": "Unlock master password",
+                "enterPassword": "Enter master password"
+            },
+            "sendTransactionConfirmation": {
+                "title": {
+                    "sendTransaction": "Send transaction",
+                    "contractExecution": "Execute contract",
+                    "createContract": "Create contract"  
+                },
+                "contractExecutionInfo": "You are about to execute a function on a contract. This might involve transfer of value.",
+                "contractCreationInfo": "You are about to create a contract from the provided data.",
+                "enterPassword": "Enter password to confirm the transaction",
+                "unlocking": "Confirming...",
+                "createContract": "Create contract",
+                "estimatedFee": "Estimated fee consumption",
+                "estimatedGasError": "Data can't be executed, so it will use all provided gas.",
+                "gasPrice": "Gas price",
+                "perMillionGas": "ether per million gas",
+                "providedGas": "Provided maximum fee",
+                "data": "Data",
+                "buttons": {
+                    "sendTransaction": "Send transaction"
+                },
+                "errors": {
+                    "wrongPassword": "Wrong password"
+                }
+            }
+        }
+    }
+}
