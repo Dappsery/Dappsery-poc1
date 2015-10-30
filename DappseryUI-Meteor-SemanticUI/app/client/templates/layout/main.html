@@ -1,0 +1,22 @@
+
+<template name="DappseryLayout">
+  <main class="ui fluid container">
+
+    <header>
+      <h1>{{title}}</h1>
+      {{> yield region="header"}}
+    </header>
+
+
+    <aside class="ui bottom attached segment pushable">
+      {{> yield region="aside"}}
+    </aside>
+
+
+    <footer style="margin:0px;">
+      {{> yield region="footer"}}
+    </footer>
+  </main>
+
+
+</template>
