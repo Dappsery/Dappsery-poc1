@@ -98,7 +98,7 @@ Template.layout_aside.helpers({
     @method
     */
 
-		'categoryIcons':function(){
+		categoryIcons :function(){
             return categoryIcons
     }
 

@@ -2,15 +2,22 @@
 
   <div class="ui inverted main menu">
 
-            <a href="/"  class="item ui header">Blog Template</a>
-            <a href="{{ pathFor 'view1' }}" class="item">{{{i18n 'dapp.app.buttons.view1'}}}</a>
-            <a href="{{ pathFor 'view2' }}" class="item">{{{i18n 'dapp.app.buttons.view2'}}}</a>
+            <a href="{{ pathFor 'view2' }}" class="item">Publishers</a>
+            <a href="{{ pathFor 'view2' }}" class="item">Advertisers</a>
+            <a href="{{ pathFor 'view2' }}" class="item">Marketplace</a>
+            <a href="{{ pathFor 'view2' }}" class="item">About</a>
 
+            <div class="right menu">
+            <a class="item" href="">
+        			Get in Touch
+      </a>
+
+            <a href="{{ pathFor 'view2' }}" class="item">Get started</a>
                   <a href="#" class="item"><i class="circular inverted lighter twitter icon"></i></a>
                   <a href="#" class="item"><i class="circular inverted lighter facebook icon"></i></a>
                   <a href="#" class="item"><i class="circular inverted lighter mail icon"></i></a>
 
                   <p class="copyright item">{{{i18n 'dapp.app.copyright'}}}</p>
-
+            </div>
     </div>
 </template>
