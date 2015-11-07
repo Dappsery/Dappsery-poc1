@@ -1,0 +1,12 @@
+<template name="siteMenu">
+	<div class="ui large secondary inverted pointing menu">
+		<div class="ui container">
+	        {{ > menuLinks }}
+			<div class="right item">
+		        <a class="item" href="{{ pathFor 'cart' }}">Cart</a>
+		        <a class="ui inverted button" href="{{ pathFor 'login' }}">Log in</a>
+		        <a class="ui inverted button" href="{{ pathFor 'signUp' }}">Sign Up</a>
+			</div>
+		</div>
+	</div>
+</template>

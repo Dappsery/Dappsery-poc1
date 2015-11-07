@@ -25,55 +25,20 @@ var pages = {
     "home":{"title":"home"}
 };
 
-// Change the URLS to use #! instead of real paths
-// Iron.Location.configure({useHashPaths: true});
-
-// Router defaults
 Router.configure({
-    layoutTemplate: 'DappseryLayoutxx', //main2',
-    notFoundTemplate: 'layout_notFound',
-    /*yieldRegions: {
-        'layout_header': {to: 'header'}
-        , 'layout_aside':{to:'aside'}
-        , 'layout_footer': {to: 'footer'}
-
-    }*/
+    notFoundTemplate: 'layout_notFound'
 });
-
-// ROUTES
-
-/**
-The receive route, showing the wallet overview
-
-@method dashboard
-*/
-
-// Default route
-
-// Route for view1
-Router.route('/view1', {
-    template: 'views_view1',
-    name: 'view1'
-});
-
-// Route for view2
-Router.route('/view2', {
-    template: 'views_view2',
-    name: 'view2'
-});
-
 
 Router.route('/', {
-    template: 'home3',//pages.home.title,
+    template: 'home',
     name: pages.home.title,
-  //  layoutTemplate: 'main2',
     yieldRegions: {
-         'header2':{to: 'header'},
-         'footer2': {to: 'footer'}
-
+    	'header':{to: 'header'},
+    	'floatingMenu':{to: 'floatingMenu'},
+    	'footer': {to: 'footer'}
     },
     data:function () {
-    return pages.home;
+    	return pages.home;
     }
 });
 

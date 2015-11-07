@@ -1,4 +1,4 @@
-Template.home3.onRendered(function() {
+Template.home.onRendered(function() {
     
         $('.fixed.hidden.menu').hide();
     

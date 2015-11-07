@@ -1,23 +1,33 @@
-<template name="layout_footer">
+<template name="footer">
 
-  <div class="ui inverted main menu">
-
-            <a href="{{ pathFor 'view2' }}" class="item">Publishers</a>
-            <a href="{{ pathFor 'view2' }}" class="item">Advertisers</a>
-            <a href="{{ pathFor 'view2' }}" class="item">Marketplace</a>
-            <a href="{{ pathFor 'view2' }}" class="item">About</a>
-
-            <div class="right menu">
-            <a class="item" href="">
-        			Get in Touch
-      </a>
-
-            <a href="{{ pathFor 'view2' }}" class="item">Get started</a>
-                  <a href="#" class="item"><i class="circular inverted lighter twitter icon"></i></a>
-                  <a href="#" class="item"><i class="circular inverted lighter facebook icon"></i></a>
-                  <a href="#" class="item"><i class="circular inverted lighter mail icon"></i></a>
-
-                  <p class="copyright item">{{{i18n 'dapp.app.copyright'}}}</p>
-            </div>
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a class="active item" href="{{ pathFor 'home' }}">{{{i18n 'dapp.app.title'}}}</a>
+            <a class="item" href="{{ pathFor 'about' }}">About</a>
+            <a class="item" href="{{ pathFor 'contact' }}">Get in Touch</a>
+		  <a class="item" href="{{ pathFor 'publishers' }}">Publishers</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a class="item" href="{{ pathFor 'marketPlace' }}">Marketplace</a>
+          <a class="item" href=" {{ pathFor 'cart' }}">Cart</a>
+          <a class="item" href="{{ pathFor 'login' }}">Log in</a>
+          <a class="item" href="{{ pathFor 'signUp' }}">Sign Up</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          <p><img src="/logo/Dappsery300dpi2.png" alt="logo" class="ui centered logo item"></p>
+        </div>
+      </div>
     </div>
+  </div>
+
 </template>

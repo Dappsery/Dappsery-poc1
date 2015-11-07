@@ -1,36 +1,11 @@
-<template name="layout_header">
-	<div class="ui inverted main menu">
-		<div class="header item">
-			<a class="launch item" href="/">{{{i18n 'dapp.app.title'}}}</a>
-		</div>
-		<a class="item" href="{{ pathFor 'view1' }}">
-			{{{i18n 'dapp.app.buttons.view1'}}}
-		</a>
-		<a class="item" href="{{ pathFor 'view2' }}">
-			{{{i18n 'dapp.app.buttons.view2'}}}
-		</a>
-		<a class="item" href="{{ pathFor 'publishers' }}">
-			Publishers
-		</a>
-		<a class="item" href="{{ pathFor 'advertisers' }}">
-			Advertisers
-		</a>
-		<a class="item" href="{{ pathFor 'about' }}">
-			About
-		</a>
-		<a class="item" href="{{ pathFor 'contact' }}">
-			Get in Touch
-		</a>
-		<div class="right menu">
-		<a class="item" href="{{ pathFor 'marketPlace' }}">
-			Marketplace
-		</a>
-		<a class="item" href=" {{ pathFor 'cart' }}">
-			Cart
-		</a>
-		<a class="item" href="{{ pathFor 'login' }}">
-			LOGIN
-		</a>
-		</div>
+<template name="header">
+	<div class="ui inverted vertical masthead center aligned segment">
+    	{{> siteMenu}}
+	    <div class="ui text container">
+	    	<img src="/logo/Dappsery300dpi2.png" alt="logo" class="ui logo item">
+			<h1 class="ui inverted header">Decentralized Self Serve Ad Marketplace.</h1>
+			<h2>Imagine a marriage between Google ads &amp; the Ethereum Blockchain.</h2>
+			<div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+	    </div>
 	</div>
 </template>

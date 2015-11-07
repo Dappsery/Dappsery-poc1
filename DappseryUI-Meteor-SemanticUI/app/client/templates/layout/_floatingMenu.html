@@ -1,0 +1,12 @@
+<template name="floatingMenu">
+	<div class="ui large top fixed hidden menu">
+		<div class="ui container">
+	        {{ > menuLinks }}
+			<div class="right item">
+		        <a class="item" href="{{ pathFor 'cart' }}">Cart</a>
+		        <a class="item" href="{{ pathFor 'login' }}">Log in</a>
+		        <a class="item" href="{{ pathFor 'signUp' }}">Sign Up</a>
+			</div>
+		</div>
+	</div>
+</template>
