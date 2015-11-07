@@ -26,6 +26,7 @@ var pages = {
 };
 
 Router.configure({
+    layoutTemplate: '_contents',
     notFoundTemplate: 'layout_notFound'
 });
 
@@ -44,82 +45,75 @@ Router.route('/', {
 
 
 Router.route('/about', {
-    layoutTemplate: '_contents',
-    template: pages.about.title,
     name: pages.about.title,
     data:function () {
-    return pages.about;}
+    	return pages.about;
+	}
 });
 
 Router.route('/account', {
     layoutTemplate: '_accounts',
-    template: pages.account.title,
     name: pages.account.title,
     data:function () {
-    return pages.account;}
+    	return pages.account;
+	}
 });
 
 Router.route('/ads', {
-    layoutTemplate: '_contents',
-    template: pages.ads.title,
     name: pages.ads.title,
     data:function () {
-    return pages.ads;}
+    	return pages.ads;
+	}
 });
 
 Router.route('/advertisers', {
-    layoutTemplate: '_contents',
-    template: pages.advertisers.title,
     name: pages.advertisers.title,
     data:function () {
-    return pages.advertisers;}
+    	return pages.advertisers;
+	}
 });
 
 Router.route('/cart', {
-    layoutTemplate: '_contents',
-    template: pages.cart.title,
     name: pages.cart.title,
     data:function () {
-    return pages.cart;}
+    	return pages.cart;
+	}
 });
 
 
 Router.route('/contact', {
-    layoutTemplate: '_contents',
-    template: pages.contact.title,
     name: pages.contact.title,
     data:function () {
-    return pages.contact;}
+    	return pages.contact;
+	}
 });
 
 Router.route('/login', {
-    layoutTemplate: '_contents',
-    template: pages.login.title,
     name: pages.login.title,
     data:function () {
-    return pages.login;}
+    	return pages.login;
+	}
 });
 
 Router.route('/marketPlace', {
     layoutTemplate: '_markets',
-    template: pages.marketPlace.title,
     name: pages.marketPlace.title,
     data:function () {
-    return pages.marketPlace;}
+    	return pages.marketPlace;
+	}
 });
 
 Router.route('/signUp', {
-    layoutTemplate: '_contents',
-    template: pages.signUp.title,
     name: pages.signUp.title,
     data:function () {
-    return pages.signUp;}
+    	return pages.signUp;
+	}
 });
 
 Router.route('/publishers', {
     layoutTemplate: '_markets',
-    template: pages.publishers.title,
     name: pages.publishers.title,
     data:function () {
-    return pages.publishers;}
+    	return pages.publishers;
+	}
 });
