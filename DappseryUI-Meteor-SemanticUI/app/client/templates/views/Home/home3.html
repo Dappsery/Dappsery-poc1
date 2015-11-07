@@ -1,0 +1,94 @@
+<template name="home3">
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item" href="{{ pathFor 'home3' }}">{{{i18n 'dapp.app.title'}}}</a>
+        <a class="item" href="{{ pathFor 'about' }}">About</a>
+        <a class="item" href="{{ pathFor 'contact' }}">Get in Touch</a>
+		<a class="item" href="{{ pathFor 'publishers' }}">Publishers</a>
+        <a class="item" href="{{ pathFor 'marketPlace' }}">Marketplace</a>
+        <div class="right item">
+          <a class="item" href=" {{ pathFor 'cart' }}">Cart</a>
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+
+<!-- Page Contents -->
+<div class="pusher">
+ 
+{{> yield region="header"}}
+    
+      
+      
+      
+     
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">Ad Publishers</h3>
+          <p>Enjoy timely, granular and automated smart contract payouts, pure data analytics user admin &amp; cheapest costs on the planet.</p>
+          <h3 class="ui header">Advertisers &amp; Dapp Developers</h3>
+          <p>Maximize exposure to your product or service with our distributed quality assurance team &amp; algorithmic fraud determent, bringing peace of mind and best bang for your bucks</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Check Them Out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>"Cheap and quality service"</h3>
+          <p>This is by far one of the leading platforms in terms of cost and service. Less than 5% rev share, beat that!</p>
+        </div>
+        <div class="column">
+          <h3>"Every buck I spent counts"</h3>
+          <p>
+            I trippled downloads to dapp in one day and every one of those clicks were actual humans. I love the precise nature of Dappsery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Our Publishers love our the cheap cost effective service</h3>
+      <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
+      <a class="ui large button">Read More</a>
+      <h4 class="ui horizontal header divider">
+        <a href="#">Case Studies</a>
+      </h4>
+      <h3 class="ui header">Our Advertisers &amp; Dapp Devs love the quality service</h3>
+      <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+      <a class="ui large button">I'm Still Quite Interested</a>
+    </div>
+  </div>
+
+
+    
+    
+{{> yield region="footer"}}
+    
+  
+</div>
+
+</template>

@@ -1,0 +1,34 @@
+<template name="_headerBar">
+    
+<div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="Sidebar icon"></i>
+        </a>
+        <a class="active item" href="{{ pathFor 'home3' }}">{{{i18n 'dapp.app.title'}}}</a>
+        <a class="item" href="{{ pathFor 'about' }}">About</a>
+        <a class="item" href="{{ pathFor 'contact' }}">Get in Touch</a>
+		<a class="item" href="{{ pathFor 'publishers' }}">Publishers</a>
+        <a class="item" href="{{ pathFor 'marketPlace' }}">Marketplace</a>
+        <div class="right item">
+          <a class="item" href=" {{ pathFor 'cart' }}">Cart</a>
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    
+
+    
+    
+ <img src="/logo/Dappsery300dpi2.png" alt="logo" class="ui centered logo item" style="position:relative; top:120px;">
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Decentralized Self Serve Ad Marketplace.
+      </h1>
+      <h2>Imagine a marriage between Google ads &amp; the Ethereum Blockchain.</h2>
+      <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+    </div>
+    
+    
+</template>

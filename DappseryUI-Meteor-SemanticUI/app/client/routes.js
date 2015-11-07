@@ -30,14 +30,14 @@ var pages = {
 
 // Router defaults
 Router.configure({
-    layoutTemplate: 'DappseryLayout',
+    layoutTemplate: 'DappseryLayoutxx', //main2',
     notFoundTemplate: 'layout_notFound',
-    yieldRegions: {
+    /*yieldRegions: {
         'layout_header': {to: 'header'}
         , 'layout_aside':{to:'aside'}
         , 'layout_footer': {to: 'footer'}
 
-    }
+    }*/
 });
 
 // ROUTES
@@ -64,14 +64,22 @@ Router.route('/view2', {
 
 
 Router.route('/', {
-    template: pages.home.title,
+    template: 'home3',//pages.home.title,
     name: pages.home.title,
+  //  layoutTemplate: 'main2',
+    yieldRegions: {
+         'header2':{to: 'header'},
+         'footer2': {to: 'footer'}
+
+    },
     data:function () {
-    return pages.home;}
+    return pages.home;
+    }
 });
 
 
 Router.route('/about', {
+    layoutTemplate: '_contents',
     template: pages.about.title,
     name: pages.about.title,
     data:function () {
@@ -79,6 +87,7 @@ Router.route('/about', {
 });
 
 Router.route('/account', {
+    layoutTemplate: '_accounts',
     template: pages.account.title,
     name: pages.account.title,
     data:function () {
@@ -86,6 +95,7 @@ Router.route('/account', {
 });
 
 Router.route('/ads', {
+    layoutTemplate: '_contents',
     template: pages.ads.title,
     name: pages.ads.title,
     data:function () {
@@ -93,6 +103,7 @@ Router.route('/ads', {
 });
 
 Router.route('/advertisers', {
+    layoutTemplate: '_contents',
     template: pages.advertisers.title,
     name: pages.advertisers.title,
     data:function () {
@@ -100,6 +111,7 @@ Router.route('/advertisers', {
 });
 
 Router.route('/cart', {
+    layoutTemplate: '_contents',
     template: pages.cart.title,
     name: pages.cart.title,
     data:function () {
@@ -108,6 +120,7 @@ Router.route('/cart', {
 
 
 Router.route('/contact', {
+    layoutTemplate: '_contents',
     template: pages.contact.title,
     name: pages.contact.title,
     data:function () {
@@ -115,6 +128,7 @@ Router.route('/contact', {
 });
 
 Router.route('/login', {
+    layoutTemplate: '_contents',
     template: pages.login.title,
     name: pages.login.title,
     data:function () {
@@ -122,6 +136,7 @@ Router.route('/login', {
 });
 
 Router.route('/marketPlace', {
+    layoutTemplate: '_markets',
     template: pages.marketPlace.title,
     name: pages.marketPlace.title,
     data:function () {
@@ -129,6 +144,7 @@ Router.route('/marketPlace', {
 });
 
 Router.route('/signUp', {
+    layoutTemplate: '_contents',
     template: pages.signUp.title,
     name: pages.signUp.title,
     data:function () {
@@ -136,6 +152,7 @@ Router.route('/signUp', {
 });
 
 Router.route('/publishers', {
+    layoutTemplate: '_markets',
     template: pages.publishers.title,
     name: pages.publishers.title,
     data:function () {
