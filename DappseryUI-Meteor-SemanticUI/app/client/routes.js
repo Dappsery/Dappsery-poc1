@@ -31,13 +31,8 @@ Router.configure({
 });
 
 Router.route('/', {
-    template: 'home',
+    layoutTemplate: '_home',
     name: pages.home.title,
-    yieldRegions: {
-    	'header':{to: 'header'},
-    	'floatingMenu':{to: 'floatingMenu'},
-    	'footer': {to: 'footer'}
-    },
     data:function () {
     	return pages.home;
     }
