@@ -1,9 +1,5 @@
 <template name="account">
-  <div class="pageSizesCustom ui basic segment">
-    <div class="ui segment">
-
-    </div>
-  </div>
-
-
+	<div class="ui container page-container">
+		{{> ensureSignedIn auth="atForm" template="dashboard"}}
+	</div>
 </template>
