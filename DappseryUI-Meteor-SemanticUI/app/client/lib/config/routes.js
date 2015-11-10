@@ -97,41 +97,6 @@ Router.route('/publishers', {
 	}
 });
 
-// See https://github.com/meteor-useraccounts/core/blob/master/Guide.md#options
-AccountsTemplates.configure({
-    // Behavior
-    confirmPassword: true,
-    enablePasswordChange: true,
-    forbidClientAccountCreation: true,
-    overrideLoginErrors: true,
-    sendVerificationEmail: true,
-    lowercaseUsername: false,
-    focusFirstInput: true,
-
-    // Appearance
-    showAddRemoveServices: false,
-    showForgotPasswordLink: true,
-    showLabels: true,
-    showPlaceholders: true,
-    showResendVerificationEmailLink: false,
-	hideSignUpLink: false,
-
-    // Client-side Validation
-    continuousValidation: false,
-    negativeFeedback: false,
-    negativeValidation: true,
-    positiveValidation: true,
-    positiveFeedback: true,
-    showValidating: true,
-
-    // Redirects
-    homeRoutePath: '/home',
-    redirectTimeout: 4000,
-
-	texts: {
-        errors: {
-            loginForbidden: "Invalid login.",
-            mustBeLoggedIn: "You must be logged in to do that."
-        }
-    }
+Router.plugin('ensureSignedIn', {
+  only: ['private']
 });
