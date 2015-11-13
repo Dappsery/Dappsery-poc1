@@ -1,5 +1,6 @@
 // See https://github.com/meteor-useraccounts/core/blob/master/Guide.md#options
 AccountsTemplates.configure({
+	homeRoutePath: '/account',
 	texts: {
         errors: {
             loginForbidden: "Invalid login.",
@@ -11,6 +12,15 @@ AccountsTemplates.configure({
         	hasError: "fa fa-times",
     	}
     }
+});
+
+AccountsTemplates.configureRoute('ensureSignedIn', {
+    template: 'authWrapper',
+    layoutTemplate: '_accounts',
+});
+
+Router.plugin('ensureSignedIn', {
+  only: ['dashboard', 'accountPublisher', 'accountAdvertiser', 'accountCQT', 'settings']
 });
 
 //Set up login services

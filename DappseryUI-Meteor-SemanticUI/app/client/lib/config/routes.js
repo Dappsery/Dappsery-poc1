@@ -20,7 +20,8 @@ var pages = {
     "ads":{"title":"advertisement"},
     "contact":{"title":"contact"},
     "marketPlace":{"title":"marketPlace"},
-    "home":{"title":"home"}
+    "home":{"title":"home"},
+    "logout":{"title":"logout"}
 };
 
 Router.configure({
@@ -30,73 +31,83 @@ Router.configure({
 
 Router.route('/', {
     layoutTemplate: '_home',
-    name: pages.home.title,
-    data:function () {
-    	return pages.home;
-    }
+    name: 'home'
 });
 
 
 Router.route('/about', {
-    name: pages.about.title,
-    data:function () {
-    	return pages.about;
-	}
-});
-
-Router.route('/account', {
-    layoutTemplate: '_accounts',
-    name: pages.account.title,
-    data:function () {
-    	return pages.account;
-	}
+    name: 'about'
 });
 
 Router.route('/ads', {
-    name: pages.ads.title,
-    data:function () {
-    	return pages.ads;
-	}
+    name: 'ads'
 });
 
 Router.route('/advertisers', {
-    name: pages.advertisers.title,
-    data:function () {
-    	return pages.advertisers;
-	}
+    name: 'advertisers'
 });
 
 Router.route('/cart', {
-    name: pages.cart.title,
-    data:function () {
-    	return pages.cart;
-	}
+    name: 'cart'
 });
 
 
 Router.route('/contact', {
-    name: pages.contact.title,
-    data:function () {
-    	return pages.contact;
-	}
+    name: 'contact'
 });
 
 Router.route('/marketPlace', {
     layoutTemplate: '_markets',
-    name: pages.marketPlace.title,
-    data:function () {
-    	return pages.marketPlace;
-	}
+    name: 'marketPlace'
 });
 
 Router.route('/publishers', {
     layoutTemplate: '_markets',
-    name: pages.publishers.title,
+    name: 'publishers'
+});
+
+Router.route('/account', {
+    layoutTemplate: '_accounts',
+    name: 'dashboard',
+	breadcrum: 'Account'
+});
+
+Router.route('/account/publisher', {
+    layoutTemplate: '_accounts',
+    name: 'accountPublisher'
+});
+
+Router.route('/account/advertiser', {
+    layoutTemplate: '_accounts',
+    name: 'accountAdvertiser'
+});
+
+Router.route('/account/click-quality-team', {
+    layoutTemplate: '_accounts',
+    name: 'accountCQT'
+});
+
+Router.route('/account/settings', {
+    layoutTemplate: '_accounts',
+    name: 'settings'
+});
+
+Router.route('/login', {
     data:function () {
-    	return pages.publishers;
+    	this.redirect('/account');
 	}
 });
 
-Router.plugin('ensureSignedIn', {
-  only: ['private']
+Router.route('/signUp', {
+    data:function () {
+    	this.redirect('/account');
+	}
 });
+
+Router.route('/logout', {
+    name: 'logout',
+    data:function () {
+    	AccountsTemplates.logout();
+	}
+});
+
