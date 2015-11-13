@@ -106,3 +106,4 @@ dist_mist/
 
 #Don't ignore the .gitkeep files
 !.gitkeep
+/DappseryUI-Meteor-SemanticUI/app/app.iml

@@ -11,7 +11,7 @@ The app routes
 @constructor
 */
 
-var pages = {
+ pages = {
     "about":{"title":"about"},
     "account":{"title":"account"},
     "advertisers":{"title":"advertisers"},

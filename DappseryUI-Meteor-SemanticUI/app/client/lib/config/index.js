@@ -56,4 +56,11 @@ Meteor.startup(function() {
 
 	// Set Meta Title
 	Meta.setTitle(TAPi18n.__("dapp.app.title"));
+
+//used as globe template data holder.
+    PLATE_CONTEXT=new ReactiveVar();
+
+
+
+
 });

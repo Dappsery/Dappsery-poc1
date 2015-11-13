@@ -1,9 +1,15 @@
 <template name="marketPlace">
-  <div class="pageSizesCustom ui basic segment">
-    <div class="ui segment">
+    {{> Template.dynamic template="breadcrumb"}}
 
+    <div class="pageSizesCustom ui basic segment">
+        <div class="ui segment">
+
+
+            {{> Template.dynamic template=templateName}}
+
+        </div>
     </div>
-  </div>
 
 
 </template>
+

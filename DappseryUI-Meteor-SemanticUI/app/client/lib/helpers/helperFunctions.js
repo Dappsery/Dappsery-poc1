@@ -1,26 +1,26 @@
 /**
-Helper functions
+ Helper functions
 
-@module Helpers
-**/
+ @module Helpers
+ **/
 
 /**
-The Helpers class containing helper functions
+ The Helpers class containing helper functions
 
-@class Helpers
-@constructor
-**/
+ @class Helpers
+ @constructor
+ **/
 
 Helpers = {};
 
 
 /**
-Reruns functions reactively, based on an interval. Use it like so:
+ Reruns functions reactively, based on an interval. Use it like so:
 
-    Helpers.rerun['10s'].tick();
+ Helpers.rerun['10s'].tick();
 
-@method (rerun)
-**/
+ @method (rerun)
+ **/
 
 Helpers.rerun = {
     '10s': new ReactiveTimer(10)
@@ -28,16 +28,16 @@ Helpers.rerun = {
 
 
 /**
-Clear localStorage
+ Clear localStorage
 
-@method (getLocalStorageSize)
-**/
+ @method (getLocalStorageSize)
+ **/
 
-Helpers.getLocalStorageSize = function(){
+Helpers.getLocalStorageSize = function () {
 
     var size = 0;
-    if(localStorage) {
-        _.each(Object.keys(localStorage), function(key){
+    if (localStorage) {
+        _.each(Object.keys(localStorage), function (key) {
             size += localStorage[key].length * 2 / 1024 / 1024;
         });
     }
@@ -46,21 +46,20 @@ Helpers.getLocalStorageSize = function(){
 };
 
 
-
 /**
-Reactive wrapper for the moment package.
+ Reactive wrapper for the moment package.
 
-@method (moment)
-@param {String} time    a date object passed to moment function.
-@return {Object} the moment js package
-**/
+ @method (moment)
+ @param {String} time    a date object passed to moment function.
+ @return {Object} the moment js package
+ **/
 
-Helpers.moment = function(time){
+Helpers.moment = function (time) {
 
     // react to language changes as well
     TAPi18n.getLanguage();
 
-    if(_.isFinite(time) && moment.unix(time).isValid())
+    if (_.isFinite(time) && moment.unix(time).isValid())
         return moment.unix(time);
     else
         return moment(time);
@@ -69,29 +68,29 @@ Helpers.moment = function(time){
 
 
 /**
-Formats a timestamp to any format given.
+ Formats a timestamp to any format given.
 
-    Helpers.formatTime(myTime, "YYYY-MM-DD")
+ Helpers.formatTime(myTime, "YYYY-MM-DD")
 
-@method (formatTime)
-@param {String} time         The timstamp, can be string or unix format
-@param {String} format       the format string, can also be "iso", to format to ISO string, or "fromnow"
-@return {String} The formated time
-**/
+ @method (formatTime)
+ @param {String} time         The timstamp, can be string or unix format
+ @param {String} format       the format string, can also be "iso", to format to ISO string, or "fromnow"
+ @return {String} The formated time
+ **/
 
-Helpers.formatTime = function(time, format) { //parameters
-    
+Helpers.formatTime = function (time, format) { //parameters
+
     // make sure not existing values are not Spacebars.kw
-    if(format instanceof Spacebars.kw)
+    if (format instanceof Spacebars.kw)
         format = null;
 
-    if(time) {
+    if (time) {
 
-        if(_.isString(format) && !_.isEmpty(format)) {
+        if (_.isString(format) && !_.isEmpty(format)) {
 
-            if(format.toLowerCase() === 'iso')
+            if (format.toLowerCase() === 'iso')
                 time = Helpers.moment(time).toISOString();
-            else if(format.toLowerCase() === 'fromnow') {
+            else if (format.toLowerCase() === 'fromnow') {
                 // make reactive updating
                 Helpers.rerun['10s'].tick();
                 time = Helpers.moment(time).fromNow();
@@ -104,3 +103,32 @@ Helpers.formatTime = function(time, format) { //parameters
     } else
         return '';
 };
+
+/**
+ * create dynamic breadcrumbs
+ * @param lastId
+ * @param lastName
+ */
+Helpers.setBreadCrumbDeep = function (lastId, lastName) {
+    console.log(lastName)
+
+    var plate_context = PLATE_CONTEXT.get();
+    var newBC = {
+        breadcrumbs: []
+    };
+
+
+    for (var i = 0; i < plate_context.index+1; i++)
+        newBC.breadcrumbs.push(plate_context.ctx[i].breadcrumb.last);
+
+
+    newBC.last = {
+        _id: lastId,
+        title: lastName
+    }
+
+
+    plate_context.index++
+    plate_context.ctx[plate_context.index].breadcrumb=newBC
+    PLATE_CONTEXT.set(plate_context)
+}

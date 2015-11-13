@@ -20,7 +20,6 @@ frozeman:persistent-minimongo
 frozeman:storage
 frozeman:template-var
 frozeman:reactive-timer
-mrt:moment
 dburles:collection-helpers
 matb33:collection-hooks
 raix:handlebar-helpers
@@ -54,3 +53,4 @@ accounts-github
 useraccounts:iron-routing
 pauli:accounts-linkedin
 ethereum:accounts
+mrt:moment
