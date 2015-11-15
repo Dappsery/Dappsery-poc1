@@ -4,10 +4,10 @@
 // A test persitent collection
 MarketPlaceAds = new Mongo.Collection(null);
 MarketPlaceCategories = new Mongo.Collection(null);
-
+AccountDb = new Mongo.Collection(null);
 
 Meteor.startup(function () {
-
+	
     for (var i = 0; i < 20; i++)
         MarketPlaceCategories.insert({
             name: "cat " + i,
