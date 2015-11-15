@@ -2,3 +2,6 @@
 // we use {connection: null} to prevent them from syncing with our not existing Meteor server
 
 // A test persitent collection
+MarketPlaceAds = new Mongo.Collection(null);
+MarketPlaceCategories = new Mongo.Collection(null);
+AccountDb = new Mongo.Collection(null);
