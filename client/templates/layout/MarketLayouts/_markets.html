@@ -1,11 +1,23 @@
 <template name="_markets">
 
+    <div class="ui inverted left vertical thin sidebar menu">
+        {{#each categoryIcons}}
+            <a class="item" href="/marketPlace/{{_id}}" id="{{_id}}"><i class="{{this.icon}}" ></i> {{this.name}}</a>
+        {{/each}}
+    </div>
+
 
     <div class="pusher">
         <header>
             {{> siteMenu}}
         </header>
-        {{> breadcrumbCustom}}
+        <div class="ui segment">
+            <div class="ui icon button" onclick="$('.ui.sidebar').sidebar('toggle')" data-content="{{i18n show.categories}}">
+                <i class="sidebar icon" ></i>
+            </div>
+
+            {{> breadcrumbCustom}}
+        </div>
         {{> yield}}
         <footer>
             {{> footer}}

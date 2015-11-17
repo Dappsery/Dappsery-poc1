@@ -103,32 +103,12 @@ Helpers.formatTime = function (time, format) { //parameters
     } else
         return '';
 };
-
 /**
- * create dynamic breadcrumbs
- * @param lastId
- * @param lastName
+ *
+ * @param min
+ * @param max
+ * @returns {rand int value between}
  */
-Helpers.setBreadCrumbDeep = function (lastId, lastName) {
-    console.log(lastName)
-
-    var plate_context = PLATE_CONTEXT.get();
-    var newBC = {
-        breadcrumbs: []
-    };
-
-
-    for (var i = 0; i < plate_context.index+1; i++)
-        newBC.breadcrumbs.push(plate_context.ctx[i].breadcrumb.last);
-
-
-    newBC.last = {
-        _id: lastId,
-        title: lastName
-    }
-
-
-    plate_context.index++
-    plate_context.ctx[plate_context.index].breadcrumb=newBC
-    PLATE_CONTEXT.set(plate_context)
+Helpers.random = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

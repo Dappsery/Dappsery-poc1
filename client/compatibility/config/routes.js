@@ -57,22 +57,17 @@ Router.route('/contact', {
     name: 'contact'
 });
 
-Router.route('/marketPlace', {
-    layoutTemplate: '_markets',
-    name: 'marketPlace',
-    title: 'marketplace.title',
-    parent: 'home'
-});
 Router.route('/marketPlace/:catId', {
     layoutTemplate: '_markets',
-    template: 'adsList',
-    name: 'adsList',
+    template: 'marketPlace',
+    name: 'marketPlace',
+    parent: 'home',
     title: function () {
-        return MarketPlaceCategories.find({_id: this.params.catId}).fetch()[0].name
+        return MarketPlaceCategories.findOne({_id: this.params.catId}).name
     },
-    parent: 'marketPlace',
+
     data: function () {
-        return MarketPlaceAds.find({catId:this.params.catId});
+        return MarketPlaceAds.find({catId: this.params.catId});
     }
 });
 Router.route('/marketPlace/:catId/:adsId', {
@@ -84,7 +79,7 @@ Router.route('/marketPlace/:catId/:adsId', {
     },
     parent: 'marketPlace',
     data: function () {
-        return MarketPlaceAds.find({_id:this.params.adsId}).fetch()[0];
+        return MarketPlaceAds.find({_id: this.params.adsId}).fetch()[0];
     }
 });
 

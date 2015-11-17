@@ -2,23 +2,15 @@
 
     <div class="pageSizesCustom ui basic segment">
         <div class="ui segment">
-            <div class="ui six doubling cards">
+            <div class="ui four cards">
+                {{#each getAds}}
 
-                {{#each categories}}
-
-                    <div class="card">
-                        <div class="image">
-                            <img src="{{logo}}">
-                        </div>
-                        <div class="content">
-                            <a href="{{pathFor route='marketPlace'}}/{{_id}}" id="{{_id}}" class="header collection">{{name}}</a>
-                        </div>
-                    </div>
+                   {{>adsCard}}
 
                 {{/each}}
-
             </div>
         </div>
+
     </div>
 
 

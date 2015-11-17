@@ -1,20 +1,19 @@
 <template name="breadcrumbCustom">
     <div class="ui breadcrumb">
 
-        {{#with breadcrumbsContext}}
-            {{#each this}}
+        {{#each breadcrumbsContext}}
 
-                {{#unless  cssClasses}}
-                    <i class="right angle icon divider"></i>
-                    <a href="{{url}}" class="section">{{title}}</a>
-                {{else}}
+            {{#unless  cssClasses}}
+                <i class="right angle icon divider"></i>
+                <a href="{{url}}" class="section">{{title}}</a>
+            {{else}}
 
                 <i class="right angle icon divider"></i>
+
                 <div id="{{index}}" class="active section">{{title}}</div>
             {{/unless }}
 
-            {{/each}}
-        {{/with}}
+        {{/each}}
 
     </div>
 
