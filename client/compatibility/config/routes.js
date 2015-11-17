@@ -1,27 +1,27 @@
 /**
-Template Controllers
+ Template Controllers
 
-@module Routes
-*/
+ @module Routes
+ */
 
 /**
-The app routes
-@pages
-@class App routes
-@constructor
-*/
+ The app routes
+ @pages
+ @class App routes
+ @constructor
+ */
 
- pages = {
-    "about":{"title":"about"},
-    "account":{"title":"account"},
-    "advertisers":{"title":"advertisers"},
-    "cart":{"title":"cart"},
-    "publishers":{"title":"publishers"},
-    "ads":{"title":"advertisement"},
-    "contact":{"title":"contact"},
-    "marketPlace":{"title":"marketPlace"},
-    "home":{"title":"home"},
-    "logout":{"title":"logout"}
+var pages = {
+    "about": {"title": "about"},
+    "account": {"title": "account"},
+    "advertisers": {"title": "advertisers"},
+    "cart": {"title": "cart"},
+    "publishers": {"title": "publishers"},
+    "ads": {"title": "advertisement"},
+    "contact": {"title": "contact"},
+    "marketPlace": {"title": "marketPlace"},
+    "home": {"title": "home"},
+    "logout": {"title": "logout"}
 };
 
 Router.configure({
@@ -31,7 +31,8 @@ Router.configure({
 
 Router.route('/', {
     layoutTemplate: '_home',
-    name: 'home'
+    name: 'home',
+    title: 'dapp.app.title'
 });
 
 
@@ -58,7 +59,33 @@ Router.route('/contact', {
 
 Router.route('/marketPlace', {
     layoutTemplate: '_markets',
-    name: 'marketPlace'
+    name: 'marketPlace',
+    title: 'marketplace.title',
+    parent: 'home'
+});
+Router.route('/marketPlace/:catId', {
+    layoutTemplate: '_markets',
+    template: 'adsList',
+    name: 'adsList',
+    title: function () {
+        return MarketPlaceCategories.find({_id: this.params.catId}).fetch()[0].name
+    },
+    parent: 'marketPlace',
+    data: function () {
+        return MarketPlaceAds.find({catId:this.params.catId});
+    }
+});
+Router.route('/marketPlace/:catId/:adsId', {
+    layoutTemplate: '_markets',
+    template: 'adsDetail',
+    name: 'adsDetail',
+    title: function () {
+        return MarketPlaceAds.find({_id: this.params.adsId}).fetch()[0].publisherName
+    },
+    parent: 'marketPlace',
+    data: function () {
+        return MarketPlaceAds.find({_id:this.params.adsId}).fetch()[0];
+    }
 });
 
 Router.route('/publishers', {
@@ -69,7 +96,7 @@ Router.route('/publishers', {
 Router.route('/account', {
     layoutTemplate: '_accounts',
     name: 'dashboard',
-	breadcrum: 'Account'
+    breadcrum: 'Account'
 });
 
 Router.route('/account/publisher', {
@@ -93,21 +120,21 @@ Router.route('/account/settings', {
 });
 
 Router.route('/login', {
-    data:function () {
-    	this.redirect('/account');
-	}
+    data: function () {
+        this.redirect('/account');
+    }
 });
 
 Router.route('/signUp', {
-    data:function () {
-    	this.redirect('/account');
-	}
+    data: function () {
+        this.redirect('/account');
+    }
 });
 
 Router.route('/logout', {
     name: 'logout',
-    data:function () {
-    	AccountsTemplates.logout();
-	}
+    data: function () {
+        AccountsTemplates.logout();
+    }
 });
 
