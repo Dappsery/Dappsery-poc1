@@ -4,7 +4,7 @@
 		<a class="item" href="{{pathFor 'settings'}}"><i class="settings icon"></i>Settings</a>
 		<a class="item" href="{{pathFor 'accountPublisher'}}"><i class="newspaper icon"></i>Publisher Tools</a>
 		<a class="item" href="{{pathFor 'accountAdvertiser'}}"><i class="tags icon"></i>Advertiser Tools</a>
-		<a class="item" href="{{pathFor 'accountCQT'}}"><i class="bug icon"></i>Click Quality Team</a>
+		<a class="item" href="{{pathFor 'accountQAT'}}"><i class="bug icon"></i>Quality Assurance Team</a>
 		<a class="item" href="{{pathFor 'logout'}}"><i class="sign out icon"></i>Logout</a>
 	</div>
     <div class="pusher">
@@ -18,7 +18,8 @@
 						<i class="sidebar icon"></i>
 					</button>
 					<div id="account-page">
-						{{> yield}}
+						{{> Template.dynamic template="breadcrumb"}}crum
+						{{> Template.dynamic template=templateName}}
 					</div>
 				</div>
 			</div>

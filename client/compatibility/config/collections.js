@@ -4,7 +4,6 @@
 // A test persitent collection
 MarketPlaceAds = new Mongo.Collection(null);
 MarketPlaceCategories = new Mongo.Collection(null);
-AccountDb = new Mongo.Collection(null);
 
 Meteor.startup(function () {
 	

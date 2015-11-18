@@ -1,18 +1,12 @@
 <template name="breadcrumb">
-    <div class="ui breadcrumb">
-
+    <div class="ui segment breadcrumb">
         {{#with breadcrumbsContext}}
             {{#each breadcrumbs}}
-                <i class="right angle icon divider"></i>
-                <a href="*"  class="section">{{{i18n title}}}</a>
+                <div class="divider"> <i class="right chevron icon divider"></i> </div>
+                <a class="section" href="*">{{{i18n title}}}</a>
             {{/each}}
-            <i class="right angle icon divider"></i>
-
-            <div id="{{index}}" class="active section">{{{i18n last.title}}}</div>
+            <div class="divider"> <i class="right chevron icon divider"></i> </div>
+			<div id="{{index}}" class="active section">{{{i18n last.title}}}</div>
         {{/with}}
-
-
     </div>
-
-
 </template>

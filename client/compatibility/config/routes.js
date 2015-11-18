@@ -68,8 +68,7 @@ Router.route('/publishers', {
 
 Router.route('/account', {
     layoutTemplate: '_accounts',
-    name: 'dashboard',
-	breadcrum: 'Account'
+    name: 'dashboard'
 });
 
 Router.route('/account/publisher', {
@@ -82,9 +81,9 @@ Router.route('/account/advertiser', {
     name: 'accountAdvertiser'
 });
 
-Router.route('/account/click-quality-team', {
+Router.route('/account/quality-assurance-team', {
     layoutTemplate: '_accounts',
-    name: 'accountCQT'
+    name: 'accountQAT'
 });
 
 Router.route('/account/settings', {
