@@ -1,13 +1,14 @@
 
+
+//TODO:make run it on content change
+Template.marketPlace.rendered = function () {
+    $('.rating').rating();
+}
 Template.marketPlace.helpers({
-    getAds: function () {
-        return MarketPlaceAds.find({catId:Router.current().params.catId});
+    categoryId: function () {
+        return Router.current().params.catId
     }
 })
 
 
-//does not working
-Template.marketPlace.rendered = function () {
-    $('.rating').rating();
-}
 

@@ -112,3 +112,20 @@ Helpers.formatTime = function (time, format) { //parameters
 Helpers.random = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+Helpers.getPublisherByCatId = function (catId) {
+    return catId == 0 ?
+        Publishers.find() :
+        Publishers.find({publisherCategories: {$in: [catId]}})
+}
+Helpers.getAdsByPubIdAndCatId = function (pubId, catId) {
+    var selector={};
+
+    if (catId != 0)
+        selector.catIds = {$in: [catId]}
+    if (pubId != 0)
+        selector.publisherId = pubId
+
+
+    return MarketPlaceAds.find(selector)
+
+}

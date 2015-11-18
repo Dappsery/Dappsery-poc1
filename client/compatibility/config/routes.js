@@ -63,29 +63,65 @@ Router.route('/marketPlace/:catId', {
     name: 'marketPlace',
     parent: 'home',
     title: function () {
-        return MarketPlaceCategories.findOne({_id: this.params.catId}).name
+        return this.params.catId == 0 ? "all" : MarketPlaceCategories.findOne({_id: this.params.catId}).name
     },
 
     data: function () {
-        return MarketPlaceAds.find({catId: this.params.catId});
+        return Helpers.getPublisherByCatId(this.params.catId)
     }
 });
-Router.route('/marketPlace/:catId/:adsId', {
+Router.route('/marketPlace/:catId/:pubId', {
+    layoutTemplate: '_markets',
+    template: 'adsList',
+    name: 'adsList',
+    parent: 'marketPlace',
+    title: function () {
+        return Publishers.findOne({_id: this.params.pubId}).name
+    },
+
+    data: function () {
+        return Helpers.getAdsByPubIdAndCatId(this.params.pubId, this.params.catId);
+    }
+});
+Router.route('/marketPlace/:catId/:pubId/:adsId', {
     layoutTemplate: '_markets',
     template: 'adsDetail',
     name: 'adsDetail',
+    parent: 'adsList',
     title: function () {
-        return MarketPlaceAds.find({_id: this.params.adsId}).fetch()[0].publisherName
+        return MarketPlaceAds.findOne({_id: this.params.adsId}).name
     },
-    parent: 'marketPlace',
+
     data: function () {
-        return MarketPlaceAds.find({_id: this.params.adsId}).fetch()[0];
+        return MarketPlaceAds.findOne({_id: this.params.adsId});
     }
 });
 
-Router.route('/publishers', {
+Router.route('/publishers/:catId', {
     layoutTemplate: '_markets',
-    name: 'publishers'
+    template: 'publishers',
+    name: 'publishers',
+    parent: 'home',
+    title: function () {
+        return this.params.catId == 0 ? "all" : MarketPlaceCategories.findOne({_id: this.params.catId}).name
+    },
+
+    data: function () {
+        return Helpers.getPublisherByCatId(this.params.catId)
+    }
+});
+Router.route('/publishers/:catId/:pubId', {
+    layoutTemplate: '_markets',
+    template: 'publisherDetail',
+    name: 'publisherDetail',
+    parent: 'publishers',
+    title: function () {
+        return this.params.pubId == 0 ? "all" : Publishers.findOne({_id: this.params.pubId}).name
+    },
+
+    data: function () {
+        return Publishers.find({_id: this.params.pubId})
+    }
 });
 
 Router.route('/account', {

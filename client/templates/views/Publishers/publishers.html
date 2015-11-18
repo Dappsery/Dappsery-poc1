@@ -1,9 +1,34 @@
 <template name="publishers">
-  <div class="pageSizesCustom ui basic segment">
-    <div class="ui segment">
+    <div class="pageSizesCustom ui basic segment">
+
+        <div class="ui segment">
+            <div class="ui four cards">
+
+                {{#each this}}
+
+                    <div class="ui card">
+
+                        <div class="image">
+                            <img src="{{logo}}">
+
+                        </div>
+
+                        <div class="content">
+
+                            <a id="{{_id}}" href="publishers/{{categoryId}}/{{_id}}"
+                               class="header collection small">{{name}}</a>
+
+                        </div>
+
+
+                    </div>
+
+                {{/each}}
+
+
+            </div>
+        </div>
 
     </div>
-  </div>
-
 
 </template>

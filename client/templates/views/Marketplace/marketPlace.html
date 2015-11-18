@@ -1,13 +1,42 @@
 <template name="marketPlace">
 
     <div class="pageSizesCustom ui basic segment">
+
         <div class="ui segment">
             <div class="ui four cards">
-                {{#each getAds}}
 
-                   {{>adsCard}}
+                {{#each this}}
+
+                    <div class="ui card">
+
+                        <div class="image">
+                            <img src="{{logo}}">
+
+                        </div>
+
+                        <div class="content">
+
+                            <a id="{{_id}}" href="marketPlace/{{categoryId}}/{{_id}}"
+                               class="header collection small">{{name}}</a>
+
+                        </div>
+
+
+                        <div class="content">
+
+
+                            <a class="header collection big" href="/publishers/{{categoryId}}/{{_id}}">
+                                <i class="info circle big icon center"></i>
+                            </a>
+
+                        </div>
+
+
+                    </div>
 
                 {{/each}}
+
+
             </div>
         </div>
 

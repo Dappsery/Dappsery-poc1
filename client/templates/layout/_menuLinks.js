@@ -1,11 +1,13 @@
 Template.menuLinks.helpers({
-    //TODO: return array of the menu links
-    firstCategoryId: function () {
+    randomCategoryId: function () {
         var count = MarketPlaceCategories.find().count();
         var rnd = Helpers.random(0, count - 1);
-        //console.log("c:"+count+" rnd"+rnd)
         return MarketPlaceCategories.find().fetch()[rnd]._id;
-
-
     }
 })
+Template.menuLinks.rendered = function () {
+    $('#site-menu a').click(function (ev) {
+        $(ev.target).siblings(".active").toggleClass("active")
+        $(ev.target).toggleClass("active")
+    })
+}
