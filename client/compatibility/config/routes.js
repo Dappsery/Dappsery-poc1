@@ -131,35 +131,35 @@ Router.route('/publishers/:catId/:pubId', {
 Router.route('/account', {
     layoutTemplate: '_accounts',
     name: 'dashboard',
-    title: pages.dashboard
+    title: 'Dashboard'
 });
 
 Router.route('/account/publisher', {
     layoutTemplate: '_accounts',
     name: 'accountPublisher',
     parent: 'dashboard',
-    title: pages.publisher
+    title: 'Publisher'
 });
 
 Router.route('/account/advertiser', {
     layoutTemplate: '_accounts',
     name: 'accountAdvertiser',
     parent: 'dashboard',
-    title: pages.advertiser
+    title: 'Advertiser'
 });
 
 Router.route('/account/quality-assurance-team', {
     layoutTemplate: '_accounts',
     name: 'accountQAT',
     parent: 'dashboard',
-    title: pages.qat
+    title: 'Quality Assurance Team'
 });
 
 Router.route('/account/settings', {
     layoutTemplate: '_accounts',
     name: 'settings',
     parent: 'dashboard',
-    title: pages.settings
+    title: 'Settings'
 });
 
 Router.route('/login', {
