@@ -177,7 +177,7 @@ Router.route('/signUp', {
 Router.route('/logout', {
     name: 'logout',
     data: function () {
-        AccountsTemplates.logout();
+        //Logout
     }
 });
 
