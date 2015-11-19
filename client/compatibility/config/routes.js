@@ -163,21 +163,23 @@ Router.route('/account/settings', {
 });
 
 Router.route('/login', {
+	layoutTemplate: '_accounts',
+    name: 'login',
     data: function () {
         this.redirect('/account');
     }
 });
 
 Router.route('/signUp', {
-    data: function () {
-        this.redirect('/account');
-    }
+	name: 'signUp'
 });
 
 Router.route('/logout', {
     name: 'logout',
     data: function () {
-        //Logout
+        if (Meteor.isClient) {
+        	Meteor.logout;
+        }
     }
 });
 

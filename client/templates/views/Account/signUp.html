@@ -1,0 +1,24 @@
+<template name="signUp">
+	<div class="ui container page-container">
+		<div class="ui segment">
+			<h1>Create an Account</h1>
+			<p>Ola: I'll add in the default account selector later.</p>
+			<div class="ui segment">
+				<form class="ui form">
+					<div class="field">
+						<label for="create-username">Username</label>
+						<input type="text" id="create-username" name="create-username" placeholder="HappyHarryAteAHippo">
+					</div>
+					<div class="field">
+						<label for="create-password">Password</label>
+						<input type="password" id="create-password" name="create-password">
+					</div>
+					<button class="ui secondary button" id="create-submit">Create Your Account</button>
+				</form>
+				<p>
+					<br><a href="{{pathFor 'login'}}">Have an account?</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</template>
