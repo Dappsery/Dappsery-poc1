@@ -13,7 +13,6 @@
 
 var pages = {
     "about": {"title": "about"},
-    "account": {"title": "account"},
     "advertisers": {"title": "advertisers"},
     "cart": {"title": "cart"},
     "publishers": {"title": "publishers"},
@@ -21,7 +20,12 @@ var pages = {
     "contact": {"title": "contact"},
     "marketPlace": {"title": "marketPlace"},
     "home": {"title": "home"},
-    "logout": {"title": "logout"}
+    "logout": {"title": "logout"},
+    "dashboard": {"title": "Dashboard"},
+    "publisher": {"title": "Publisher"},
+    "advertiser": {"title": "Advertiser"},
+    "qat": {"title": "Quality Assurance Team"},
+    "settings": {"title": "Settings"},
 };
 
 Router.configure({
@@ -127,27 +131,35 @@ Router.route('/publishers/:catId/:pubId', {
 Router.route('/account', {
     layoutTemplate: '_accounts',
     name: 'dashboard',
-    breadcrum: 'Account'
+    title: pages.dashboard
 });
 
 Router.route('/account/publisher', {
     layoutTemplate: '_accounts',
-    name: 'accountPublisher'
+    name: 'accountPublisher',
+    parent: 'dashboard',
+    title: pages.publisher
 });
 
 Router.route('/account/advertiser', {
     layoutTemplate: '_accounts',
-    name: 'accountAdvertiser'
+    name: 'accountAdvertiser',
+    parent: 'dashboard',
+    title: pages.advertiser
 });
 
-Router.route('/account/click-quality-team', {
+Router.route('/account/quality-assurance-team', {
     layoutTemplate: '_accounts',
-    name: 'accountCQT'
+    name: 'accountQAT',
+    parent: 'dashboard',
+    title: pages.qat
 });
 
 Router.route('/account/settings', {
     layoutTemplate: '_accounts',
-    name: 'settings'
+    name: 'settings',
+    parent: 'dashboard',
+    title: pages.settings
 });
 
 Router.route('/login', {
