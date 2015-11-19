@@ -11,8 +11,9 @@
 	    <header>
 			{{> siteMenu}}
 	    </header>
-		<div id="account-body">
+		<div class="bg-beige">
 			<div class="ui container page-container">
+				{{#if currentUser}}
 				<div class="ui raised segment">
 					<button class="ui secondary icon button" onclick="$('#sidebar-menu').sidebar('toggle');">
 						<i class="sidebar icon"></i>
@@ -22,6 +23,9 @@
 						{{> yield}}
 					</div>
 				</div>
+				{{else}}
+					{{> login}}
+				{{/if}}
 			</div>
 		</div>
 		<footer>
