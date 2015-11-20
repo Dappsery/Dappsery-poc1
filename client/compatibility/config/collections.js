@@ -5,3 +5,4 @@
 MarketPlaceAds = new Mongo.Collection(null);
 Publishers = new Mongo.Collection(null);
 MarketPlaceCategories = new Mongo.Collection(null);
+AccountDB = new Mongo.Collection(null);
