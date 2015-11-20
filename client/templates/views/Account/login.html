@@ -2,18 +2,17 @@
 	<div class="ui container page-container">
 		<div class="ui segment">
 			<h1>Sign In</h1>
-			<p>Ola: I'll seperate this page later. For now it's all on the same page.</p>
 			<div class="ui segment">
+				<div id="loginErrorBox" class="ui negative message hidden">
+					<div class="header">An error has occurred.</div>
+					<p id="loginError"></p>
+				</div>
 				<form class="ui form">
 					<div class="field">
-						<label for="username">Username</label>
-						<input type="text" id="username" name="username" placeholder="HappyHarryAteAHippo">
+						<label for="login-username">Username</label>
+						<input type="text" id="login-username" name="login-username" placeholder="HappyHarryAteAHippo">
 					</div>
-					<div class="field">
-						<label for="password">Password</label>
-						<input type="password" id="password" name="password">
-					</div>
-					<button class="ui secondary button" id="submit-login">Log In</button>
+					<button class="ui secondary button" id="submit-login">Proceed</button>
 				</form>
 				<p>
 					<br><a href="{{pathFor 'signUp'}}">Need an account?</a>

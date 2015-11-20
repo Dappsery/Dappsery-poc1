@@ -16,6 +16,17 @@ account = (function () {
         }
     }
 
+    function getUsersMatchingUsername(username, callback) {
+        var usersCursor = AccountDB.find({username:username});
+        var totalUsers = usersCursor.count();
+
+        if (totalUsers === 0) {
+            callback('Invalid username or password');
+        } else {
+            callback(null, usersCursor.fetch());
+        }
+    }
+
     function login (username, password, callback) {
         console.log('login');
         callback();
@@ -32,6 +43,7 @@ account = (function () {
 
     return {
         register:register,
+        getUsersMatchingUsername:getUsersMatchingUsername,
         login:login,
         isLoggedIn:isLoggedIn,
         logout:logout
