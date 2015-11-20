@@ -178,7 +178,7 @@ Router.route('/logout', {
     name: 'logout',
     data: function () {
         if (Meteor.isClient) {
-        	Meteor.logout;
+        	account.logout();
         }
     }
 });
