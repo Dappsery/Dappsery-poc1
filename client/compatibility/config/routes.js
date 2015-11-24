@@ -21,7 +21,7 @@ var pages = {
     "marketPlace": {"title": "marketPlace"},
     "home": {"title": "home"},
     "logout": {"title": "logout"},
-    "dashboard": {"title": "Dashboard"},
+    "account": {"title": "Account"},
     "publisher": {"title": "Publisher"},
     "advertiser": {"title": "Advertiser"},
     "qat": {"title": "Quality Assurance Team"},
@@ -130,36 +130,8 @@ Router.route('/publishers/:catId/:pubId', {
 
 Router.route('/account', {
     layoutTemplate: '_accounts',
-    name: 'dashboard',
-    title: 'Dashboard'
-});
-
-Router.route('/account/publisher', {
-    layoutTemplate: '_accounts',
-    name: 'accountPublisher',
-    parent: 'dashboard',
-    title: 'Publisher'
-});
-
-Router.route('/account/advertiser', {
-    layoutTemplate: '_accounts',
-    name: 'accountAdvertiser',
-    parent: 'dashboard',
-    title: 'Advertiser'
-});
-
-Router.route('/account/quality-assurance-team', {
-    layoutTemplate: '_accounts',
-    name: 'accountQAT',
-    parent: 'dashboard',
-    title: 'Quality Assurance Team'
-});
-
-Router.route('/account/settings', {
-    layoutTemplate: '_accounts',
-    name: 'settings',
-    parent: 'dashboard',
-    title: 'Settings'
+    name: 'account',
+    title: 'account'
 });
 
 Router.route('/login', {
@@ -170,8 +142,8 @@ Router.route('/login', {
     }
 });
 
-Router.route('/signUp', {
-	name: 'signUp'
+Router.route('/register', {
+	name: 'register'
 });
 
 Router.route('/logout', {
