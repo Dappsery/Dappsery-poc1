@@ -67,11 +67,8 @@ Router.route('/marketPlace/:catId', {
     name: 'marketPlace',
     parent: 'home',
     title: function () {
-        return this.params.catId == 0 ? "all" : MarketPlaceCategories.findOne({_id: this.params.catId}).name
-    },
-
-    data: function () {
-        return Helpers.getPublisherByCatId(this.params.catId)
+        return this.params.catId == 0 ? "all" :
+            MarketPlaceCategories.findOne({_id: this.params.catId}).name
     }
 });
 Router.route('/marketPlace/:catId/:pubId', {
@@ -81,10 +78,6 @@ Router.route('/marketPlace/:catId/:pubId', {
     parent: 'marketPlace',
     title: function () {
         return Publishers.findOne({_id: this.params.pubId}).name
-    },
-
-    data: function () {
-        return Helpers.getAdsByPubIdAndCatId(this.params.pubId, this.params.catId);
     }
 });
 Router.route('/marketPlace/:catId/:pubId/:adsId', {
@@ -108,11 +101,11 @@ Router.route('/publishers/:catId', {
     parent: 'home',
     title: function () {
         return this.params.catId == 0 ? "all" : MarketPlaceCategories.findOne({_id: this.params.catId}).name
-    },
+    }/*,
 
     data: function () {
         return Helpers.getPublisherByCatId(this.params.catId)
-    }
+    }*/
 });
 Router.route('/publishers/:catId/:pubId', {
     layoutTemplate: '_markets',

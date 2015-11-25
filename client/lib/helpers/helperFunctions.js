@@ -118,7 +118,7 @@ Helpers.getPublisherByCatId = function (catId) {
         Publishers.find({publisherCategories: {$in: [catId]}})
 }
 Helpers.getAdsByPubIdAndCatId = function (pubId, catId) {
-    var selector={};
+    var selector = {};
 
     if (catId != 0)
         selector.catIds = {$in: [catId]}
@@ -128,4 +128,45 @@ Helpers.getAdsByPubIdAndCatId = function (pubId, catId) {
 
     return MarketPlaceAds.find(selector)
 
+}
+Helpers.getFilteredCollection = function (filter) {
+    var ctx = paginatorContext.get()
+    var skip = 0;
+
+    skip = (ctx.current - 1) * ctx.perPage;
+    if (!filter)
+        filter = {}
+    ctx.filter = filter
+    var options = {limit: ctx.perPage, skip: skip}
+
+    return ctx.collection.find(filter, options)
+}
+Helpers.resetPaginator = function () {
+    paginatorContext.set({
+        current: 1,
+        total: 0,
+        perPage: 4,
+        collection: null
+    })
+}
+PublisherHelpers = {
+    helpers: {
+        categoryId: function () {
+            return Router.current().params.catId
+        },
+        cursor: function () {
+
+            return Helpers.getFilteredCollection(Router.current().params.catId == 0 ?
+            {} :
+            {publisherCategories: {$in: [Router.current().params.catId]}});
+        }
+    },
+    onCreated: function () {
+
+        Helpers.resetPaginator()
+        var ctx = paginatorContext.get()
+        ctx.collection = Publishers;
+        paginatorContext.set(ctx);
+
+    }
 }

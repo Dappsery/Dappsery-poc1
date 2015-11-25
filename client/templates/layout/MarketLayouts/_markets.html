@@ -1,7 +1,7 @@
 <template name="_markets">
 
     <div class="ui inverted left vertical thin sidebar menu">
-        <a class="item" href="/{{currentPath}}/0" id="0"><i class="all"></i>{{i18n dapp.app.allCategories}}</a>
+        <a class="item" href="/{{currentPath}}/0" id="0"><i class="all"></i>All</a>
         {{#each categoryIcons}}
             <a class="item" href="/{{currentPath}}/{{_id}}" id="{{_id}}"><i class="{{this.icon}}"></i> {{this.name}}</a>
         {{/each}}
@@ -17,9 +17,10 @@
                  data-content="{{i18n show.categories}}">
                 <i class="sidebar icon"></i>
             </div>
-
             {{> breadcrumbCustom}}
         </div>
+
+        {{>pagination}}
         {{> yield}}
         <footer>
             {{> footer}}

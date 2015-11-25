@@ -1,5 +1,3 @@
-Template.publishers.helpers({
-    categoryId: function () {
-        return Router.current().params.catId
-    }
-})
+Template.publishers.helpers(PublisherHelpers.helpers)
+Template.publishers.onCreated(PublisherHelpers.onCreated)
+Template.publisherDetail.onCreated(Helpers.resetPaginator)

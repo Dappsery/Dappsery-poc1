@@ -1,0 +1,17 @@
+<template name="pagination">
+    {{#if isShow}}
+        <div class="ui segment">
+            <div class="ui pagination menu">
+
+                {{#each numbers}}
+                    <a id="{{index}}" class="item {{clazz}}">
+                        {{index}}
+                    </a>
+                {{/each }}
+
+            </div>
+        </div>
+    {{/if}}
+
+</template>
+
