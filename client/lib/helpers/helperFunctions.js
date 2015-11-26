@@ -130,23 +130,28 @@ Helpers.getAdsByPubIdAndCatId = function (pubId, catId) {
 
 }
 Helpers.getFilteredCollection = function (filter) {
+
     var ctx = paginatorContext.get()
     var skip = 0;
 
     skip = (ctx.current - 1) * ctx.perPage;
     if (!filter)
         filter = {}
-    ctx.filter = filter
-    var options = {limit: ctx.perPage, skip: skip}
 
-    return ctx.collection.find(filter, options)
+    var mergedFilter = Helpers.merge_options(ctx.filter, filter);
+
+    console.log(mergedFilter)
+
+    return ctx.collection.find(mergedFilter, {limit: ctx.perPage, skip: skip, sort: ctx.sort})
 }
 Helpers.resetPaginator = function () {
     paginatorContext.set({
         current: 1,
         total: 0,
         perPage: 4,
-        collection: null
+        collection: null,
+        filter: {},
+        sort:{}
     })
 }
 PublisherHelpers = {
@@ -169,4 +174,10 @@ PublisherHelpers = {
         paginatorContext.set(ctx);
 
     }
+}
+Helpers.merge_options=function merge_options(obj1,obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
 }

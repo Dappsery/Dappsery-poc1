@@ -1,0 +1,16 @@
+<template name="filter_search">
+    <div class="ui segment">
+        <div class="ui action input">
+            <input id="filter-field-search-text" placeholder="{{i18n 'dapp.app.filter_search'}}..." type="text">
+            <select id="filter-field-selected" class="ui compact selection dropdown">
+
+                {{#each descriptor}}
+                    <option value="{{this}}">{{i18n i18}}</option>
+                {{/each}}
+
+            </select>
+
+            <div type="submit" id="search" class="ui button">{{i18n 'dapp.app.filter_search'}}</div>
+        </div>
+    </div>
+</template>

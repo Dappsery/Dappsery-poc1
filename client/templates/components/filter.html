@@ -1,0 +1,26 @@
+<template name="filter">
+
+    {{#with context}}
+        {{#if isShow}}
+            <div id="filters" class="ui grid">
+                {{#if isFuture}}
+                    <button id="filter_futured"
+                            class="ui toggle button"> {{i18n 'dapp.app.filter_futured'}}</button>
+                {{/if}}
+                {{#if isAll}}
+                    <button id="filter_all" class="ui toggle button">  {{i18n 'dapp.app.filter_all'}}</button>
+                {{/if}}
+                {{#if isHot}}
+                    <button id="filter_hot" class="ui toggle button">  {{i18n 'dapp.app.filter_hot'}}</button>
+                {{/if}}
+                {{#if isFresh}}
+                    <button id="filter_fresh"
+                            class="ui toggle button right">  {{i18n 'dapp.app.filter_fresh'}}</button>
+                {{/if}}
+            </div>
+
+
+        {{/if}}
+    {{/with}}
+
+</template>

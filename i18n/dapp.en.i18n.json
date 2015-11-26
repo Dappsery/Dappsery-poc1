@@ -1,7 +1,14 @@
 {
   "dapp": {
     "app": {
-      "allCategories": "All",
+      "filter_futured": "Featured",
+      "filter_all": "View all",
+      "filter_hot": "Hot",
+      "filter_fresh": "Just Added",
+      "filter_search": "Search",
+      "cat_name": "Category name",
+      "pub_name": "Publisher name",
+      "all": "All",
       "title": "Dappsery",
       "buttons": {
         "view1": "View1",

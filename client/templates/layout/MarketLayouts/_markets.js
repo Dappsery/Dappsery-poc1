@@ -1,4 +1,3 @@
-
 Template._markets.helpers({
     /**
      Get the categories
@@ -9,8 +8,8 @@ Template._markets.helpers({
     categoryIcons: function () {
         return MarketPlaceCategories.find()
     },
-    currentPath:function(){
-      return Router.current().url.split("/")[1]
+    currentPath: function () {
+        return Router.current().url.split("/")[1]
     }
 
 });
@@ -25,12 +24,13 @@ Meteor.startup(function () {
     var publisherToCats = []
 
     for (var i = 0; i < categoryIcons.length; i++) {
-        var catId = MarketPlaceCategories.insert({
-            name: categoryIcons[i].cat,
-            icon: categoryIcons[i].class,
-            logo: "/images/favicons/apple-touch-icon-60x60.png",
-            createdAt: new Date()
-        });
+        var cat = new Category();
+        cat.data.createdAt = Helpers.random(100500, Date.parse(new Date()))
+        cat.data.name = categoryIcons[i].cat
+        cat.data.icon = categoryIcons[i].class
+        cat.data.logo = "/images/favicons/apple-touch-icon-60x60.png"
+
+        var catId = MarketPlaceCategories.insert(cat.data);
         catIds.push(catId)
     }
 
@@ -40,12 +40,13 @@ Meteor.startup(function () {
             catIds[Helpers.random(0, catIds.length - 1)],
             catIds[Helpers.random(0, catIds.length - 1)]]
 
-        var id = Publishers.insert({
-            createdAt: new Date(),
-            name: "Publisher Name # " + j,
-            publisherCategories: cid,
-            logo: "/images/favicons/apple-touch-icon-60x60.png"
-        });
+        var pub = new Publisher()
+        pub.data.createdAt = Helpers.random(100500, Date.parse(new Date()))
+        pub.data.name = "Publisher Name # " + j
+        pub.data.publisherCategories = cid
+        pub.data.logo = "/images/favicons/apple-touch-icon-60x60.png"
+
+        var id = Publishers.insert(pub.data);
 
         publishersId.push(id)
 
@@ -61,18 +62,17 @@ Meteor.startup(function () {
         var publisher = publisherToCats[Helpers.random(0, publisherToCats.length - 1)]
         var publisherCatIds = publisher.publisherCategories;
 
-        MarketPlaceAds.insert({
-            catIds: publisherCatIds[Helpers.random(0, publisherCatIds.length - 1)],
-            publisherId: publisher.pubId,
 
-            logo: "/images/favicons/apple-touch-icon-152x152.png",
-            name: "Adsname #" + j,
-            impressions: j + 2,
-            visitors: j + 1,
-            rating: 2,
-            createdAt: new Date()
-
-        });
+        var ads = new Ads()
+        ads.data.createdAt = Helpers.random(100500, Date.parse(new Date()))
+        ads.data.catIds = publisherCatIds[Helpers.random(0, publisherCatIds.length - 1)]
+        ads.data.publisherId = publisher.pubId
+        ads.data.logo = "/images/favicons/apple-touch-icon-152x152.png"
+        ads.data.name = "Adsname #" + j
+        ads.data.impressions = j + 2
+        ads.data.visitors = j + 1
+        ads.data.rating = Helpers.random(0, 5)
+        MarketPlaceAds.insert(ads.data);
     }
 
 })

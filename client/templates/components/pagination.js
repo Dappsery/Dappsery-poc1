@@ -3,7 +3,8 @@ paginatorContext = new ReactiveVar({
     total: 0,
     perPage: 4,
     collection: Publishers,
-    filter: {}
+    filter: {},
+    sort:{}
 });
 
 Template.pagination.helpers({

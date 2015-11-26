@@ -1,7 +1,7 @@
 <template name="_markets">
 
-    <div class="ui inverted left vertical thin sidebar menu">
-        <a class="item" href="/{{currentPath}}/0" id="0"><i class="all"></i>All</a>
+    <div id="categories" class="ui inverted left vertical thin sidebar menu">
+        <a class="item" href="/{{currentPath}}/0" id="0"><i class="all"></i>{{i18n 'dapp.app.all'}}</a>
         {{#each categoryIcons}}
             <a class="item" href="/{{currentPath}}/{{_id}}" id="{{_id}}"><i class="{{this.icon}}"></i> {{this.name}}</a>
         {{/each}}
@@ -13,14 +13,22 @@
             {{> siteMenu}}
         </header>
         <div class="ui segment">
-            <div class="ui icon button" onclick="$('.ui.sidebar').sidebar('toggle')"
-                 data-content="{{i18n show.categories}}">
+            <div class="ui icon button" onclick="$('.ui.sidebar').sidebar('toggle')">
                 <i class="sidebar icon"></i>
             </div>
             {{> breadcrumbCustom}}
         </div>
+        <div class="ui segment">
+            {{>pagination}}
+        </div>
+        <div class="ui segment">
+            {{>filter}}
 
-        {{>pagination}}
+        </div>
+        <div class="ui segment">
+            {{>filter_search}}
+        </div>
+
         {{> yield}}
         <footer>
             {{> footer}}
