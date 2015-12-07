@@ -3,6 +3,9 @@
 *******************************/
 /* Custom Dappsery less */
 
+@footer-height: 263px;
+@footer-height-768: 632px;
+
 html,body {
    margin:0;
    padding:0;
@@ -119,6 +122,7 @@ html,body {
 .page-container {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	height: 100%;
 }
 
 .bg-beige {
@@ -130,7 +134,8 @@ html,body {
 }
 
 #account-page-content {
-	margin-top: 10px;
+	margin: 10px 0px;
+	height: 100%;
 }
 
 .font-normal {
@@ -140,17 +145,18 @@ html,body {
 .pusher {
     min-height: 100%;
     position: relative;
+    padding-bottom: @footer-height;
 }
 
 footer {
     position: absolute;
     width: 100%;
     bottom: 0;
-    min-height: 265px;
+    min-height: @footer-height;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .pusher {
-        margin-bottom: 632px;
+        padding-bottom: @footer-height-768;
     }
 }
