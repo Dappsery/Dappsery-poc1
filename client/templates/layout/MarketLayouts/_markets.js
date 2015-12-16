@@ -103,7 +103,8 @@ Template._markets.helpers({
         return MarketPlaceCategories.find()
     },
     currentPath:function(){
-      return Router.current().url.split("/")[1]
+        var pathArray = Router.current().url.split("/");
+        return pathArray[1] == "" ? pathArray[3] : pathArray[1];
     }
 
 });

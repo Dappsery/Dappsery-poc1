@@ -56,9 +56,12 @@ Router.route('/cart', {
     name: 'cart'
 });
 
-
 Router.route('/contact', {
     name: 'contact'
+});
+
+Router.route('/marketPlace', {
+    name: 'marketPlaceLink'
 });
 
 Router.route('/marketPlace/:catId', {
@@ -99,6 +102,10 @@ Router.route('/marketPlace/:catId/:pubId/:adsId', {
     data: function () {
         return MarketPlaceAds.findOne({_id: this.params.adsId});
     }
+});
+
+Router.route('/publishers', {
+    name: 'publishersLink'
 });
 
 Router.route('/publishers/:catId', {
@@ -153,5 +160,10 @@ Router.route('/logout', {
         	account.logout();
         }
     }
+});
+
+Router.route('/qateam', {
+    name: 'qateam',
+    title: 'qat'
 });
 

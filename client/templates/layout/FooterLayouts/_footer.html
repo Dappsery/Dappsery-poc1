@@ -8,17 +8,16 @@
           <div class="ui inverted link list">
             <a class="active item" href="{{ pathFor 'home' }}">{{{i18n 'dapp.app.title'}}}</a>
             <a class="item" href="{{ pathFor 'about' }}">About</a>
-            <a class="item" href="{{ pathFor 'contact' }}">Get in Touch</a>
-		  <a class="item" href="{{ pathFor 'publishers' }}">Publishers</a>
           </div>
         </div>
         <div class="three wide column">
           <h4 class="ui inverted header">Services</h4>
           <div class="ui inverted link list">
-            <a class="item" href="{{ pathFor 'marketPlace' }}">Marketplace</a>
-          <a class="item" href=" {{ pathFor 'cart' }}">Cart</a>
-          <a class="item" href="{{ pathFor 'login' }}">Log in</a>
-          <a class="item" href="{{ pathFor 'register' }}">Sign Up</a>
+            {{#with randomCategoryId}}
+              <a class="item" href="{{ pathFor 'publishersLink' }}/{{this}}">Publishers</a>
+            {{/with}}
+            <a class="item" href="{{ pathFor 'login' }}">Log in</a>
+            <a class="item" href="{{ pathFor 'register' }}">Sign Up</a>
           </div>
         </div>
         <div class="seven wide column">
