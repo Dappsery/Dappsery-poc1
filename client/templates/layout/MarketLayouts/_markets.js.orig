@@ -8,9 +8,14 @@ Template._markets.helpers({
     categoryIcons: function () {
         return MarketPlaceCategories.find()
     },
-    currentPath: function () {
+<<<<<<< HEAD
+    currentPath:function(){
         var pathArray = Router.current().url.split("/");
         return pathArray[1] == "" ? pathArray[3] : pathArray[1];
+=======
+    currentPath: function () {
+        return Router.current().url.split("/")[1]
+>>>>>>> remotes/origin/master
     }
 
 });

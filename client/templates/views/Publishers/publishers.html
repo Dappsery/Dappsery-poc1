@@ -2,21 +2,23 @@
     <div class="pageSizesCustom ui basic segment">
         <div class="ui segment">
             <div class="ui ten cards">
-                {{#each this}}
-                    <div class="ui card">
-                        <div class="image">
-                            <img src="{{logo}}">
-                        </div>
-                        <div class="content">
+                {{#with cursor}}
+                    {{#each this}}
+                        <div class="ui card">
+                            <div class="image">
+                                <img src="{{logo}}">
+                            </div>
+                            <div class="content">
                             <div>
                                 <a id="{{_id}}" href="publishers/{{categoryId}}/{{_id}}" class="card-title collection small">{{name}}</a>
                             </div>
                             <div>
                                 Rating: <div class="ui star rating" data-rating="0" data-max-rating="5"></div>
                             </div>
+                            </div>
                         </div>
-                    </div>
-                {{/each}}
+                    {{/each}}
+                {{/with}}
             </div>
         </div>
     </div>

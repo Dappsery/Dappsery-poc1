@@ -1,7 +1,9 @@
 {
   "dapp": {
     "app": {
+<<<<<<< HEAD
       "allCategories": "All Categories",
+=======
       "filter_futured": "Featured",
       "filter_all": "View all",
       "filter_hot": "Hot",
@@ -10,6 +12,7 @@
       "cat_name": "Category name",
       "pub_name": "Publisher name",
       "all": "All",
+>>>>>>> remotes/origin/master
       "title": "Dappsery",
       "buttons": {
         "view1": "View1",

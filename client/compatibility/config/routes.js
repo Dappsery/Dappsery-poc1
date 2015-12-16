@@ -57,7 +57,11 @@ Router.route('/cart', {
 });
 
 Router.route('/contact', {
-    name: 'contact'
+    name: 'services'
+});
+
+Router.route('/services', {
+    name: 'services'
 });
 
 Router.route('/marketPlace', {
@@ -70,12 +74,14 @@ Router.route('/marketPlace/:catId', {
     name: 'marketPlace',
     parent: 'home',
     title: function () {
-        return this.params.catId == 0 ? "all" : MarketPlaceCategories.findOne({_id: this.params.catId}).name
+        return this.params.catId == 0 ? "all" :
+            MarketPlaceCategories.findOne({_id: this.params.catId}).name
     },
-
-    data: function () {
-        return Helpers.getPublisherByCatId(this.params.catId)
-    }
+    filterCustom: {
+        all: true,
+        fresh: true
+    },
+    model: new Publisher()
 });
 Router.route('/marketPlace/:catId/:pubId', {
     layoutTemplate: '_markets',
@@ -84,11 +90,12 @@ Router.route('/marketPlace/:catId/:pubId', {
     parent: 'marketPlace',
     title: function () {
         return Publishers.findOne({_id: this.params.pubId}).name
+    }, filterCustom: {
+        future: "rating",
+        hot: "impressions",
+        fresh: true
     },
-
-    data: function () {
-        return Helpers.getAdsByPubIdAndCatId(this.params.pubId, this.params.catId);
-    }
+    model: new Ads()
 });
 Router.route('/marketPlace/:catId/:pubId/:adsId', {
     layoutTemplate: '_markets',
@@ -102,6 +109,7 @@ Router.route('/marketPlace/:catId/:pubId/:adsId', {
     data: function () {
         return MarketPlaceAds.findOne({_id: this.params.adsId});
     }
+
 });
 
 Router.route('/publishers', {
@@ -116,10 +124,8 @@ Router.route('/publishers/:catId', {
     title: function () {
         return this.params.catId == 0 ? "all" : MarketPlaceCategories.findOne({_id: this.params.catId}).name
     },
-
-    data: function () {
-        return Helpers.getPublisherByCatId(this.params.catId)
-    }
+    filterCustom: Router.routes['marketPlace'].options.filterCustom,
+    model: Router.routes['marketPlace'].options.model
 });
 Router.route('/publishers/:catId/:pubId', {
     layoutTemplate: '_markets',
@@ -142,7 +148,7 @@ Router.route('/account', {
 });
 
 Router.route('/login', {
-	layoutTemplate: '_accounts',
+    layoutTemplate: '_accounts',
     name: 'login',
     data: function () {
         this.redirect('/account');
@@ -150,14 +156,14 @@ Router.route('/login', {
 });
 
 Router.route('/register', {
-	name: 'register'
+    name: 'register'
 });
 
 Router.route('/logout', {
     name: 'logout',
     data: function () {
         if (Meteor.isClient) {
-        	account.logout();
+            account.logout();
         }
     }
 });
