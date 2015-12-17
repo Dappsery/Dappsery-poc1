@@ -1,10 +1,4 @@
 Template._markets.helpers({
-    /**
-     Get the categories
-
-     @method
-     */
-
     categoryIcons: function () {
         return MarketPlaceCategories.find()
     },
@@ -12,7 +6,6 @@ Template._markets.helpers({
         var pathArray = Router.current().url.split("/");
         return pathArray[1] == "" ? pathArray[3] : pathArray[1];
     }
-
 });
 
 Meteor.startup(function () {
