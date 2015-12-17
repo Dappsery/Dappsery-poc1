@@ -1,0 +1,51 @@
+<template name="register">
+	<div class="ui container page-container">
+		<div class="ui segment">
+			<h1>Create Your Publisher Account</h1>
+			<div id="registerMessageBox" class="ui attached message">
+				<div class="header">Become a publisher to start profiting from running ads on your website.</div>
+				<p id="registerMessage"></p>
+			</div>
+			<form class="ui form attached fluid segment" id="registrationForm">
+				<div class="field">
+					<label for="create-username">Username</label>
+					<input type="text" id="create-username" name="create-username" placeholder="HappyHarryAteAHippo">
+				</div>
+				<div class="field">
+					<label for="create-password">Password</label>
+					<input type="password" id="create-password" name="create-password">
+				</div>
+				<div class="field">
+					<label for="create-password2">Repeat Your Password</label>
+					<input type="password" id="create-password2" name="create-password2">
+				</div>
+				<div class="field">
+					<label for="create-business-name">Business Name</label>
+					<input type="text" id="create-business-name" name="create-business-name" placeholder="Hungry Harry's Restaurant">
+				</div>
+				<div class="field">
+					<label for="create-url">Website URL</label>
+					<div class="ui labeled input">
+						<div class="ui label">http://</div>
+						<input type="text" id="create-url" name="create-url" placeholder="https://example.com">
+					</div>
+				</div>
+				<div class="field">
+					<label for="create-logo">Logo URL <small class="font-normal">(For now, size doesn't matter.)</small></label>
+					<div class="ui labeled input">
+						<div class="ui label">http://</div>
+						<input type="text" id="create-logo" name="create-logo" placeholder="https://example.com/logo.png">
+					</div>
+				</div>
+				<div class="field">
+					<div class="ui floating dropdown labeled search icon button" id="category-select">
+						<i class="browser icon"></i>
+						<span class="text" id="category-selected">Select Website Category</span>
+						<div class="menu"></div>
+					</div>
+				</div>
+				<button class="ui secondary button" id="create-submit">Create Your Account</button>
+			</form>
+		</div>
+	</div>
+</template>

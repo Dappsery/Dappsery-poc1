@@ -9,14 +9,27 @@ html,body {
    height:100%;
 }
 
+.primary{
+    color: @primary-color;
+}
+
+.secondary{
+    color: @secondary-color;
+}
+
 .hidden.menu {
 	display: none;
 }
 
 #site-menu {
 	border-radius: 0;
+	padding: 14px 0;
 }
-    
+
+#masthead {
+    padding-top: 0;
+}
+
 .masthead.segment {
 	min-height: 700px;
 	padding: 1em 0em;
@@ -86,42 +99,43 @@ html,body {
 }
 
 @media only screen and (max-width: 700px) {
-	
+
   .ui.fixed.menu {
     display: none !important;
   }
-  
+
   .secondary.pointing.menu .item,
   .secondary.pointing.menu .menu {
     display: none;
   }
-  
+
   .secondary.pointing.menu .toc.item {
     display: block;
   }
-  
+
   .masthead.segment {
     min-height: 350px;
   }
-  
+
   .masthead h1.ui.header {
     font-size: 2em;
     margin-top: 1.5em;
   }
-  
+
   .masthead h2 {
     margin-top: 0.5em;
     font-size: 1.5em;
   }
-  
+
 }
 
 .page-container {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	height: 100%;
 }
 
-#account-body {
+.bg-beige {
 	background-color: #f8f8f8;
 }
 
@@ -130,9 +144,68 @@ html,body {
 }
 
 #account-page-content {
-	margin-top: 10px;
+	margin: 10px 0px;
+	height: 100%;
 }
 
-#sidebar-button {
-	cursor: pointer;
+.font-normal {
+    font-weight: normal !important;
+}
+
+.pusher {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: @footer-height;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    min-height: @footer-height;
+}
+
+@media (max-width: 768px) {
+    .pusher {
+        padding-bottom: @footer-height-768;
+    }
+}
+
+.card-title {
+    color: #888;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.square-border {
+    border-radius: 0 !important;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+#marketplace-content {
+    margin: 10px 0px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#market-filter {
+    margin-top: 0;
+    float: right;
 }

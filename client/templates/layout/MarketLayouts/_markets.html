@@ -1,26 +1,31 @@
 <template name="_markets">
-
-    <div class="ui inverted left vertical thin sidebar menu">
-        <a class="item" href="/{{currentPath}}/0" id="0"><i class="all"></i>{{i18n dapp.app.allCategories}}</a>
-        {{#each categoryIcons}}
-            <a class="item" href="/{{currentPath}}/{{_id}}" id="{{_id}}"><i class="{{this.icon}}"></i> {{this.name}}</a>
-        {{/each}}
-    </div>
-
-
-    <div class="pusher">
+    <div class="pusher bg-beige">
         <header>
             {{> siteMenu}}
         </header>
-        <div class="ui segment">
-            <div class="ui icon button" onclick="$('.ui.sidebar').sidebar('toggle')"
-                 data-content="{{i18n show.categories}}">
-                <i class="sidebar icon"></i>
+        <div class="ui grid">
+            <div class="three wide column">
+                <div id="categories" class="ui large vertical menu square-border">
+                    <a class="centered item" href="/{{currentPath}}/0" id="0"><i class="home icon"></i>{{i18n 'dapp.app.allCategories'}}</a>
+                    {{#each categoryIcons}}
+                        <a class="item" href="/{{currentPath}}/{{_id}}" id="{{_id}}">
+                            <div class="ui olive label"><i class="{{this.icon}}"></i></div>{{this.name}}
+                        </a>
+                    {{/each}}
+                </div>
             </div>
-
-            {{> breadcrumbCustom}}
+            <div class="twelve wide column">
+                <div id="marketplace-content" class="ui segment">
+                    {{> breadcrumbCustom}}
+                    <div class="ui basic segment" id="market-filter">
+                        {{>filter}}
+                    </div>
+                    {{> yield}}
+                    {{>pagination}}
+                </div>
+            </div>
+            <div class="one wide column"></div>
         </div>
-        {{> yield}}
         <footer>
             {{> footer}}
         </footer>

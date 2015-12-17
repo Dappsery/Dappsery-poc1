@@ -3,30 +3,30 @@
 
         <div class="ui segment">
             <div class="ui four cards">
+                {{#with cursor}}
+                    {{#each this}}
 
-                {{#each this}}
+                        <div class="ui card">
+                            <div class="image">
+                                <img src="{{logo}}">
+                                <span class="ui violet tiny right ribbon label">visitors:{{visitors}}</span>
+                                <span class="ui purple tiny left ribbon label">impressions:{{impressions}}</span>
+                            </div>
 
-                    <div class="ui card">
-                        <div class="image">
-                            <img src="{{logo}}">
-                            <span class="ui violet tiny right ribbon label">visitors:{{visitors}}</span>
-                            <span class="ui purple tiny left ribbon label">impressions:{{impressions}}</span>
+                            <div class="content">
+
+                                <a id="{{_id}}" href="marketPlace/{{getPath}}/{{_id}}"
+                                   class="header collection small crumbable">{{name}}</a>
+
+                            </div>
+                            <div class="extra content">
+                                <div class="ui small star rating" id="rating_{{_id}}" data-max-rating="5"
+                                     data-rating="{{rating}}"></div>
+                            </div>
                         </div>
 
-                        <div class="content">
-
-                            <a id="{{_id}}" href="marketPlace/{{getPath}}/{{_id}}"
-                               class="header collection small crumbable">{{name}}</a>
-
-                        </div>
-                        <div class="extra content">
-                            <div class="ui small star rating" id="rating_{{_id}}" data-max-rating="5"
-                                 data-rating="{{rating}}"></div>
-                        </div>
-                    </div>
-
-                {{/each}}
-
+                    {{/each}}
+                {{/with}}
 
             </div>
         </div>

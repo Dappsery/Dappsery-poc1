@@ -39,8 +39,6 @@ random
 ejson
 spacebars
 check
-silentcicero:solc
-mike:mocha
 semantic:ui@=2.1.4_3
 flemay:less-autoprefixer
 autoupdate

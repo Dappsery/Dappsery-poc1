@@ -118,7 +118,7 @@ Helpers.getPublisherByCatId = function (catId) {
         Publishers.find({publisherCategories: {$in: [catId]}})
 }
 Helpers.getAdsByPubIdAndCatId = function (pubId, catId) {
-    var selector={};
+    var selector = {};
 
     if (catId != 0)
         selector.catIds = {$in: [catId]}
@@ -128,4 +128,45 @@ Helpers.getAdsByPubIdAndCatId = function (pubId, catId) {
 
     return MarketPlaceAds.find(selector)
 
+}
+Helpers.getFilteredCollection = function (filter) {
+
+    var ctx = paginatorContext.get()
+    var skip = 0;
+
+    skip = (ctx.current - 1) * ctx.perPage;
+    if (!filter)
+        filter = {}
+
+    var mergedFilter = Helpers.merge_options(ctx.filter, filter);
+
+    return ctx.collection.find(mergedFilter, {limit: ctx.perPage, skip: skip, sort: ctx.sort})
+}
+Helpers.resetPaginator = function () {
+    paginatorContext.reset();
+}
+PublisherHelpers = {
+    helpers: {
+        categoryId: function () {
+            return Router.current().params.catId
+        },
+        cursor: function () {
+            var catId = Router.current().params.catId;
+            return Helpers.getFilteredCollection(catId == 0 ? {} : {publisherCategories: {$in: [catId]}});
+        }
+    },
+    onCreated: function () {
+
+        Helpers.resetPaginator()
+        var ctx = paginatorContext.get()
+        ctx.collection = Publishers;
+        paginatorContext.set(ctx);
+
+    }
+}
+Helpers.merge_options=function merge_options(obj1,obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
 }

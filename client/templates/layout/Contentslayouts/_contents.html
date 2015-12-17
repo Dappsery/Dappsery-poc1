@@ -1,9 +1,11 @@
 <template name="_contents">
-    <div class="pusher">
+    <div class="pusher bg-beige">
 	    <header>
 	      {{> siteMenu}}
 	    </header>
-	      {{> yield}}
+		<div class="ui container page-container">
+		  {{> yield}}
+		</div>
 	    <footer>
 	      {{> footer}}
 	    </footer>
