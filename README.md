@@ -1,6 +1,6 @@
 # meteor-dapp-boilerplate
 
-A starting point for decentralized MeteorJS applications. Includes Ethereum.js, iron-router, Official Semantic UI Integration for Meteor, Font Awesome, LESS and more.
+Starting point for decentralized MeteorJS applications. Includes Ethereum.js, iron-router, Official Semantic UI Integration for Meteor, Font Awesome, LESS and more.
 
 ** Modification Based off of [SilentCicero's](https://github.com/SilentCicero/meteor-dapp-boilerplate) which is based on [Differential's meteor-boilerplate](https://github.com/Differential/meteor-boilerplate) and [Ethereum's meteor-dapp-wallet](https://github.com/ethereum/meteor-dapp-wallet). Please note that this boilerplate is still in Alpha.
 
